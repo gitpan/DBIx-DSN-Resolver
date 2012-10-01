@@ -22,7 +22,8 @@ no_index:
     - xt
 requires:
   DBI: 1.616
+  Socket: 0
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/kazeburo/DBIx-DSN-Resolver.git
-version: 0.03
+version: 0.04

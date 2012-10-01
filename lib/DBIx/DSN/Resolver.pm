@@ -6,7 +6,7 @@ use DBI;
 use Socket;
 use Carp;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub new {
     my $class = shift;
@@ -110,7 +110,10 @@ Default:
 
 Masahiro Nagano E<lt>kazeburo {at} gmail.comE<gt>
 
-=head1 SEE ALSO
+=head1 NOTES
+
+DBIx::DSN::Resolver uses Socket::inet_aton for hostname resolution. 
+If you use Solaris and fail hostname resolution, please recompile Socket with "LIBS=-lresolve"
 
 =head1 LICENSE
 
