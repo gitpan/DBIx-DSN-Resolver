@@ -6,7 +6,7 @@ use DBI;
 use Socket;
 use Carp;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 sub new {
     my $class = shift;
@@ -51,7 +51,7 @@ sub resolv {
         or croak "Can't resolv host name: $host, $!";
     $driver_hash{$host_key} = $ipaddr . $port;
     
-    $driver_dsn = join ';', map { length $driver_hash{$_} ? $_.'='.$driver_hash{$_} : $_ } @driver_hash_keys;
+    $driver_dsn = join ';', map { defined $driver_hash{$_} ? $_.'='.$driver_hash{$_} : $_ } @driver_hash_keys;
     $attr_string = defined $attr_string
         ? '('.$attr_string.')'
         : '';
